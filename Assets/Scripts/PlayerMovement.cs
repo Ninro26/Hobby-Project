@@ -51,6 +51,7 @@ public class PlayerMovement : MonoBehaviour
         
         // left or right arrow keys
         horizontalmove = Input.GetAxisRaw("Horizontal") * runSpeed;
+        
          if (Input.GetButtonDown("Jump"))
         {
             jump = true;
@@ -59,75 +60,7 @@ public class PlayerMovement : MonoBehaviour
           
 
 
-        /*animator.SetFloat("Speed", Mathf.Abs(horizontalmove));
-
-        controller.Move(horizontalmove * Time.fixedDeltaTime, false, jump);
-        if (OnGround == true && Input.GetButtonDown("Jump"))
-        {
-            jump = true;
-
-            if (jump == true)
-            {
-                rigid.AddForce(new Vector2(0, jumpForce));
-                animator.SetBool("IsJumping", true);
-                if (Input.GetButtonDown("Jump"))
-                {
-                    jumpCount += 1;
-                }
-             
-            }
-        }
-        
-            //Jumping  
-        /*    if (jumpCount > 3 || OnGround == true && Input.GetButtonDown("Jump"))
-        {
-
-                if (Input.GetButtonDown("Jump"))
-                {
-                    Debug.Log("jumptest");
-                    rigid.AddForce(new Vector2(0, jumpForce));
-
-
-                    // rigid.velocity = new Vector2(rigid.velocity.y, 0);
-                    jump = true;
-                    animator.SetBool("IsJumping", true);
-                     jumpCount = + 1;
-                }
-            
-
-
-
-                {
-                    if (jump == true)
-                    {
-
-                        OnGround = false;
-                        
-                }
-
-
-                    if (OnGround == true)
-                    {
-
-                        Debug.Log("grounded");
-                        //rigid.AddForce(new Vector2(0, jumpForce));
-                        candoublejump = false;
-                        jump = false;
-                        animator.SetBool("IsJumping", false);
-                    }
-                    /* else
-                     {
-                         if (candoublejump == true)
-                         {
-
-
-                             rigid.AddForce(new Vector2(0, jumpForce));
-                         }
-                         
-                    // }
-                }
-            }
-            */
+  
         } 
     }
 

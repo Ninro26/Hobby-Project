@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMove : MonoBehaviour {
-
+public class PlayerMove : MonoBehaviour
+{
+    public static PlayerMove instance;
     public float speed;
     public float jumpforce;
     private float movementInput;
@@ -17,10 +18,17 @@ public class PlayerMove : MonoBehaviour {
     bool spawnDust = false;
     public GameObject dustEffect;
     bool Landed = false;
-	// Use this for initialization
-	void Start () {
+    public Animator animator;
+    
+    // Use this for initialization
+
+
+    void Start()
+    {
+        instance = this;
         rb = GetComponent<Rigidbody2D>();
-	}
+        animator = GetComponent<Animator>();
+    }
 
     private void FixedUpdate()
     {
@@ -28,16 +36,18 @@ public class PlayerMove : MonoBehaviour {
 
         movementInput = Input.GetAxis("Horizontal");
         rb.velocity = new Vector2(movementInput * speed, rb.velocity.y);
-
+        animator.SetFloat("speed", Mathf.Abs(movementInput));
         if (facingRight == true && movementInput < 0)
         {
 
             Flip();
 
+
         }
-        else if(facingRight == false && movementInput > 0)
+        else if (facingRight == false && movementInput > 0)
         {
             Flip();
+
         }
 
 
@@ -56,20 +66,21 @@ public class PlayerMove : MonoBehaviour {
     }
 
     // Update is called once per frame
-    void Update () {
-		
-            
-        
+    void Update()
+    {
+
+
+
         if (isGrounded == true)
         {
             extraJumps = 1;
             if (spawnDust == true && Landed == true)
             {
                 Instantiate(dustEffect, groundCheck.position, Quaternion.identity);
-              
+
             }
-            
-           
+
+
         }
 
         if (Input.GetButtonDown("Jump") && extraJumps > 0)
@@ -77,7 +88,8 @@ public class PlayerMove : MonoBehaviour {
             spawnDust = false;
             rb.velocity = Vector2.up * jumpforce;
             extraJumps -= 1;
-        } else if (Input.GetButtonDown("Jump") && extraJumps ==  0 && isGrounded == true)
+        }
+        else if (Input.GetButtonDown("Jump") && extraJumps == 0 && isGrounded == true)
         {
             rb.velocity = Vector2.up * jumpforce;
         }
