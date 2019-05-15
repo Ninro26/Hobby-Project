@@ -7,6 +7,7 @@ TagManager:
   - NPC
   - Sword
   - Bow
+  - Enemy
   layers:
   - Default
   - TransparentFX

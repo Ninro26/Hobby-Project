@@ -9,31 +9,34 @@ public class arrow : MonoBehaviour {
     public float distance;
     public LayerMask whatIsSolid;
 	// Use this for initialization
-	void Start () {
+	void start () {
 
+     
 
-        
     }
+
     private void Update()
     {
         RaycastHit2D hitinfo = Physics2D.Raycast(transform.position, transform.up, distance, whatIsSolid);
+
         if (hitinfo.collider != null)
         {
+            
             if (hitinfo.collider.CompareTag("Enemy"))
             {
                 //Enemy damage
             }
+           
             DestroyProjectile();
 
         }
-
-
-        transform.Translate(transform.up * speed * Time.deltaTime);
-
+        transform.Translate(Vector2.up * speed * Time.deltaTime);
+        rb.AddForceAtPosition(rb.velocity * -1, transform.TransformPoint(0, -25, 0));
 
     }
 
-     void DestroyProjectile()
+
+    void DestroyProjectile()
     {
 
         Destroy(gameObject);

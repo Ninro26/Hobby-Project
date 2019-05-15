@@ -6,9 +6,8 @@ public class Bow : MonoBehaviour {
 
     public Transform firepoint;
     public GameObject arrow;
-    public GameObject bow;
-    [SerializeField] float offset = 90;
-
+    [SerializeField] float offset;
+    
     private float TimebtwShots;
     public float StartTimeBtwShots;
 
@@ -18,10 +17,10 @@ public class Bow : MonoBehaviour {
     }
 	
 	// Update is called once per frame
-	void Update () {
+	private void Update () {
 
         Vector3 difference = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
-        float rotZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
+        float rotZ = Mathf.Atan2(difference.y, difference.x ) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0f, 0f, rotZ + offset);
 
 
@@ -29,7 +28,7 @@ public class Bow : MonoBehaviour {
         {
             if (Input.GetButtonDown("Fire1"))
             {
-                Instantiate(arrow, firepoint.position, firepoint.rotation);
+                Instantiate(arrow, firepoint.position, transform.rotation);
                 TimebtwShots = StartTimeBtwShots;
             }
 
@@ -42,5 +41,5 @@ public class Bow : MonoBehaviour {
 	}
 
 
-   
+
 }
