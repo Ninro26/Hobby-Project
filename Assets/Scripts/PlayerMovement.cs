@@ -14,7 +14,7 @@ public class PlayerMovement : MonoBehaviour
     public int jumpCount = 3;
     public bool OnGround;
     bool candoublejump;
-    Rigidbody2D rigid;
+
     public Animator animator;
    
 
@@ -22,7 +22,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         controller = GetComponent<CharacterController2D>();
-        rigid = GetComponent<Rigidbody2D>();
+
         animator = GetComponent<Animator>();
     }
 

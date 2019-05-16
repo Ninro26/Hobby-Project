@@ -25,6 +25,7 @@ public class arrow : MonoBehaviour {
             if (hitinfo.collider.CompareTag("Enemy"))
             {
                 //Enemy damage
+                
             }
            
             DestroyProjectile();
