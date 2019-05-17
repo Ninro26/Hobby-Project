@@ -82,6 +82,7 @@ public class Pedestal : MonoBehaviour {
         {
             entered = false;
         }
+
         if (entered == false)
         {
             swordPanel.SetActive(false);
