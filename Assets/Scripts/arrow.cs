@@ -33,7 +33,7 @@ public class arrow : MonoBehaviour {
 
         }
         transform.Translate(Vector2.up * speed * Time.deltaTime);
-        rb.AddForceAtPosition(rb.velocity * -1, transform.TransformPoint(0, -25, 0));
+        rb.AddForceAtPosition(rb.velocity * -1, transform.TransformPoint(0, 0, 0));
 
     }
 

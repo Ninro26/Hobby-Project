@@ -1,16 +1,22 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+public class GameManager : MonoBehaviour
+{
 
-public class GameManger : MonoBehaviour {
+    public GameObject CaveBG;
+    public GameObject ForestBG;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
+    public void LoadScenes()
+    {
+
+        CaveBG.SetActive(false);
+        ForestBG.SetActive(true);
+        
+
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
 }

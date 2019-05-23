@@ -28,6 +28,7 @@ public class PlayerMove : MonoBehaviour
         instance = this;
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        DontDestroyOnLoad(gameObject);
     }
 
     private void FixedUpdate()
@@ -37,7 +38,7 @@ public class PlayerMove : MonoBehaviour
         movementInput = Input.GetAxis("Horizontal");
         rb.velocity = new Vector2(movementInput * speed, rb.velocity.y);
         animator.SetFloat("speed", Mathf.Abs(movementInput));
-        if (facingRight == true && movementInput < 0)
+        if (facingRight == true && movementInput < 0    )
         {
 
             Flip();

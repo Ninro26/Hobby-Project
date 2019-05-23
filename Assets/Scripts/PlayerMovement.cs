@@ -22,7 +22,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         controller = GetComponent<CharacterController2D>();
-
+        DontDestroyOnLoad(gameObject);
         animator = GetComponent<Animator>();
     }
 
