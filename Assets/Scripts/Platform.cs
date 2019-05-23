@@ -22,7 +22,7 @@ public class Platform : MonoBehaviour {
             platformCollider.enabled = false;
 
         }
-
+        //hoi
     }
     // Use this for initialization
     void Start () {
