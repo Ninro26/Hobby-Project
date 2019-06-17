@@ -5,7 +5,7 @@ using UnityEngine;
 public class NPC : MonoBehaviour {
 
 
-    public GameObject playerInvetory;
+  //public GameObject playerInvetory;
     public GameObject npcShop;
     public GameObject Ebutton;
     public GameObject textbubble;
@@ -36,13 +36,13 @@ public class NPC : MonoBehaviour {
         if (Entered == true && Input.GetKeyDown(KeyCode.E))
         {
             anim.GetComponent<Animator>().enabled = false;
-            playerInvetory.SetActive(true);
+            //playerInvetory.SetActive(true);
             npcShop.SetActive(true);
             Debug.Log("menu");
         }
         if (Entered == false /*|| Input.GetKeyDown(KeyCode.E)*/)
         {
-            playerInvetory.SetActive(false);
+           // playerInvetory.SetActive(false);
             npcShop.SetActive(false);
             anim.GetComponent<Animator>().enabled = true;
 

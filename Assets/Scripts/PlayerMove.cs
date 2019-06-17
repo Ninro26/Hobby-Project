@@ -6,18 +6,18 @@ public class PlayerMove : MonoBehaviour
 {
     public static PlayerMove instance;
     public float speed;
-    public float jumpforce;
+    private float jumpForce;
     private float movementInput;
     private Rigidbody2D rb;
     private bool facingRight = true;
-    public bool isGrounded;
+    private bool isGrounded;
     public Transform groundCheck;
-    public float checkRadius;
-    public LayerMask whatIsGround;
-    public int extraJumps;
-    bool spawnDust = false;
+    private float checkRadius;
+    private LayerMask whatIsGround;
+    private int extraJumps;
+    private bool spawnDust = false;
     public GameObject dustEffect;
-    bool Landed = false;
+    private bool landed = false;
     public Animator animator;
     
     // Use this for initialization
@@ -75,7 +75,7 @@ public class PlayerMove : MonoBehaviour
         if (isGrounded == true)
         {
             extraJumps = 1;
-            if (spawnDust == true && Landed == true)
+            if (spawnDust == true && landed == true)
             {
                 Instantiate(dustEffect, groundCheck.position, Quaternion.identity);
 
@@ -87,12 +87,12 @@ public class PlayerMove : MonoBehaviour
         if (Input.GetButtonDown("Jump") && extraJumps > 0)
         {
             spawnDust = false;
-            rb.velocity = Vector2.up * jumpforce;
+            rb.velocity = Vector2.up * jumpForce;
             extraJumps -= 1;
         }
         else if (Input.GetButtonDown("Jump") && extraJumps == 0 && isGrounded == true)
         {
-            rb.velocity = Vector2.up * jumpforce;
+            rb.velocity = Vector2.up * jumpForce;
         }
 
 
